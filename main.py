@@ -1,13 +1,14 @@
 import flet as ft
 
 def main(page: ft.Page):
-    def on_click(username):
-        if username.control.value == 'Admin' and password.control.value == 'admin':
-            page.add(ft.Text(value="Login Efetuado com sucesso!"))
+    def on_click(event):  
+        name_insert = username.value
+        password_insert = password.value
+        if name_insert == 'ADMIN' and password_insert == 'ADMIN':
+            page.add(ft.Text(f'Login Confirmed!'))
             page.update()
         else:
-            page.add(ft.Text(value="Você errou algo!"))
-            page.update()
+            page.add(ft.Text(f'Algo deu errado!'))
 
     username = ft.TextField(hint_text="Username: ")
     password = ft.TextField(hint_text="Password: ")

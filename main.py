@@ -35,25 +35,33 @@ def segunda_pagina(page):
                 ft.Container(
                     bgcolor=ft.colors.AMBER,
                     alignment=ft.alignment.center,
-                    expand=True,
+                    expand=False,
+                    height=100,
+                    padding=2
+                    
                 ),
                 ft.Divider(),
-                ft.Container(bgcolor=ft.colors.PINK, alignment=ft.alignment.center, expand=True),
-                ft.Divider(height=1, color="white"),
+                ft.Container(bgcolor=ft.colors.PINK, alignment=ft.alignment.center, expand=False, height=100,padding=2),
+                ft.Divider(height=3, color="white"),
                 ft.Container(
                     bgcolor=ft.colors.BLUE_300,
                     alignment=ft.alignment.center,
-                    expand=True,
+                    expand=False,
+                    height=100,
+                    padding=2,
+                    
                 ),
                 ft.Divider(height=9, thickness=3),
                 ft.Container(
                     bgcolor=ft.colors.DEEP_PURPLE_200,
                     alignment=ft.alignment.center,
-                    expand=True,
+                    expand=False,
+                    height=100,
+                    padding=2
                 ),
             ],
-            spacing=0,
-            expand=True,
+            spacing=4,
+            expand=False,
         ),
     )
 ft.app(target=main)

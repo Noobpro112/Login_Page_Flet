@@ -5,7 +5,7 @@ def main(page: ft.Page):
         name_insert = username.value
         password_insert = password.value
         if name_insert == 'ADMIN' and password_insert == 'ADMIN':
-            page.add(ft.Text(f'Login Confirmed!'))
+            segunda_pagina(page)
             page.update()
         else:
             page.add(ft.Text(f'Algo deu errado!'))
@@ -15,6 +15,11 @@ def main(page: ft.Page):
 
     page.add(username)
     page.add(password)
-    page.add(ft.FloatingActionButton(icon=ft.icons.ADD, on_click=on_click))
+    page.add(ft.FloatingActionButton(icon=ft.icons.PASSWORD_OUTLINED, on_click=on_click))
+
+def segunda_pagina(page):
+    # Segunda página
+    page.clean()
+    page.add(ft.Text('Esta é a segunda página'))
 
 ft.app(target=main)

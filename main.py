@@ -31,7 +31,7 @@ def segunda_pagina(page):
     page.add(
         ft.AppBar(
             leading=ft.FilledTonalButton(
-                "Login", icon='add_shopping_cart', on_click=lambda event: main(page)),
+                "Login", icon='keyboard_backspace', on_click=lambda event: main(page)),
             leading_width=150,
             title=ft.Text('Mercado Online!'),
             center_title=True,
@@ -119,6 +119,7 @@ def registro(page):
     page.add(email)
     page.add(ft.FloatingActionButton(
         icon=ft.icons.PASSWORD_OUTLINED, on_click=on_click))
+    page.add(ft.FilledButton(text='Login',on_click=lambda event:main(page)))
 
 
 ft.app(target=main)

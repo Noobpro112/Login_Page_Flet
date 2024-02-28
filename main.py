@@ -49,9 +49,7 @@ def segunda_pagina(page):
                             width=300,
                             ink=True,
                             on_click=lambda e: print('Click'),
-
                         ),
-                        ft.Divider(height=3, color="white"),
                         ft.Container(
                             bgcolor=ft.colors.AMBER,
                             alignment=ft.alignment.center,
@@ -62,7 +60,6 @@ def segunda_pagina(page):
                             ink=True,
                             on_click=lambda e: print('Click')
                         ),
-                        ft.Divider(height=3, color="white"),
                         ft.Container(
                             bgcolor=ft.colors.AMBER,
                             alignment=ft.alignment.center,
@@ -73,7 +70,6 @@ def segunda_pagina(page):
                             ink=True,
                             on_click=lambda e: print('Click')
                         ),
-                        ft.Divider(height=3, color="white"),
                         ft.Container(
                             bgcolor=ft.colors.AMBER,
                             alignment=ft.alignment.center,
@@ -84,7 +80,6 @@ def segunda_pagina(page):
                             ink=True,
                             on_click=lambda e: print('Click')
                         ),
-                        ft.Divider(height=3, color="white"),
                     ],
                     alignment=ft.alignment.center,  # Centraliza a linha na página
                 ),

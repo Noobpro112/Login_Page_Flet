@@ -9,11 +9,11 @@ def main(page: ft.Page):
         name_insert = username.value
         password_insert = password.value
         if name_insert == '' and password_insert == '':
-            #sql inner join
+            # sql inner join
             segunda_pagina(page)
             page.update()
         else:
-            page.add(ft.Text(f'Algo deu errado!'))
+            page.add(ft.Text(f'Senha ou Usuario incorretos.'))
 
     username = ft.TextField(hint_text="Username: ")
     password = ft.TextField(hint_text="Password: ")
@@ -22,10 +22,10 @@ def main(page: ft.Page):
     page.add(password)
     page.add(ft.FloatingActionButton(
         icon=ft.icons.PASSWORD_OUTLINED, on_click=on_click))
-    page.add(ft.FilledButton(text='Registre-se',on_click=lambda event:registro(page)))
+    page.add(ft.FilledButton(text='Registre-se',
+             on_click=lambda event: registro(page)))
 
 
-import flet as ft
 def segunda_pagina(page):
     page.clean()
     page.add(
@@ -43,12 +43,13 @@ def segunda_pagina(page):
                         ft.Container(
                             bgcolor=ft.colors.AMBER,
                             alignment=ft.alignment.center,
-                            expand=False,
+                            expand=True,
                             height=100,
                             padding=2,
                             width=300,
                             ink=True,
-                            on_click=lambda e:print('Click')
+                            on_click=lambda e: print('Click'),
+
                         ),
                         ft.Divider(height=3, color="white"),
                         ft.Container(
@@ -59,7 +60,7 @@ def segunda_pagina(page):
                             padding=2,
                             width=300,
                             ink=True,
-                            on_click=lambda e:print('Click')
+                            on_click=lambda e: print('Click')
                         ),
                         ft.Divider(height=3, color="white"),
                         ft.Container(
@@ -70,7 +71,7 @@ def segunda_pagina(page):
                             padding=2,
                             width=300,
                             ink=True,
-                            on_click=lambda e:print('Click')
+                            on_click=lambda e: print('Click')
                         ),
                         ft.Divider(height=3, color="white"),
                         ft.Container(
@@ -81,7 +82,7 @@ def segunda_pagina(page):
                             padding=2,
                             width=300,
                             ink=True,
-                            on_click=lambda e:print('Click')
+                            on_click=lambda e: print('Click')
                         ),
                         ft.Divider(height=3, color="white"),
                     ],
@@ -94,6 +95,7 @@ def segunda_pagina(page):
         ),
     )
 
+
 def registro(page):
     page.clean()
     page.add(ft.AppBar(title=ft.Text('Registro!'), center_title=True,))
@@ -102,7 +104,7 @@ def registro(page):
         name_insert = username.value
         password_insert = password.value
         email_insert = email.value
-        if name_insert == '' and password_insert == '' and email_insert=='':
+        if name_insert == '' and password_insert == '' and email_insert == '':
             # SQL Insert
             segunda_pagina(page)
             page.update()
@@ -112,14 +114,16 @@ def registro(page):
 
     username = ft.TextField(hint_text="Username: ")
     password = ft.TextField(hint_text="Password: ")
+    reconfirm_password = ft.TextField(hint_text="Digite sua senha novamente:")
     email = ft.TextField(hint_text='Digite o seu email: ')
 
     page.add(username)
     page.add(password)
+    page.add(reconfirm_password)
     page.add(email)
     page.add(ft.FloatingActionButton(
         icon=ft.icons.PASSWORD_OUTLINED, on_click=on_click))
-    page.add(ft.FilledButton(text='Login',on_click=lambda event:main(page)))
+    page.add(ft.FilledButton(text='Login', on_click=lambda event: main(page)))
 
 
 ft.app(target=main)

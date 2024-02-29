@@ -33,7 +33,7 @@ def segunda_pagina(page):
             leading=ft.FilledTonalButton(
                 "Login", icon='keyboard_backspace', on_click=lambda event: main(page)),
             leading_width=150,
-            title=ft.Text('Mercado Online!'),
+            title=ft.Text('Banco Pig. Oink Oink!'),
             center_title=True,
         ),
         ft.Column(

@@ -43,32 +43,12 @@ def segunda_pagina(page):
                         ft.Container(
                             bgcolor=ft.colors.AMBER,
                             alignment=ft.alignment.center,
-                            expand=True,
+                            expand=False,
                             height=100,
                             padding=2,
                             width=300,
                             ink=True,
                             on_click=lambda e: print('Click'),
-                        ),
-                        ft.Container(
-                            bgcolor=ft.colors.AMBER,
-                            alignment=ft.alignment.center,
-                            expand=False,
-                            height=100,
-                            padding=2,
-                            width=300,
-                            ink=True,
-                            on_click=lambda e: print('Click')
-                        ),
-                        ft.Container(
-                            bgcolor=ft.colors.AMBER,
-                            alignment=ft.alignment.center,
-                            expand=False,
-                            height=100,
-                            padding=2,
-                            width=300,
-                            ink=True,
-                            on_click=lambda e: print('Click')
                         ),
                         ft.Container(
                             bgcolor=ft.colors.AMBER,

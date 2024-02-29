@@ -48,6 +48,7 @@ def segunda_pagina(page):
                             padding=2,
                             width=300,
                             ink=True,
+                            content=ft.Text('Digitado algo'),
                             on_click=lambda e: print('Click'),
                         ),
                         ft.Container(

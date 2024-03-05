@@ -1,6 +1,7 @@
 import flet as ft
 
 
+
 def main(page: ft.Page):
     page.clean()
     page.add(ft.AppBar(title=ft.Text('Login!'), center_title=True,))
@@ -35,8 +36,39 @@ def segunda_pagina(page):
             leading_width=150,
             title=ft.Text('Banco Pig. Oink Oink!'),
             center_title=True,
-        ),
-        ft.Column(
+        )
+    )
+    rail = ft.NavigationRail(
+        selected_index=0,
+        label_type=ft.NavigationRailLabelType.ALL,
+        # extended=True,
+        min_width=100,
+        min_extended_width=400,
+        leading=ft.FloatingActionButton(icon=ft.icons.CREATE, text="Add"),
+        group_alignment=-0.9,
+        destinations=[
+            ft.NavigationRailDestination(
+                icon=ft.icons.FAVORITE_BORDER, selected_icon=ft.icons.FAVORITE, label="First"
+            ),
+            ft.NavigationRailDestination(
+                icon_content=ft.Icon(ft.icons.BOOKMARK_BORDER),
+                selected_icon_content=ft.Icon(ft.icons.BOOKMARK),
+                label="Second",
+            ),
+            ft.NavigationRailDestination(
+                icon=ft.icons.SETTINGS_OUTLINED,
+                selected_icon_content=ft.Icon(ft.icons.SETTINGS),
+                label_content=ft.Text("Settings"),
+            ),
+        ],
+        on_change=lambda e: print("Selected destination:", e.control.selected_index),
+    )
+
+    page.add(
+        ft.Row(
+            [
+                rail,
+                ft.Column(
             [
                 ft.Row(
                     [
@@ -48,7 +80,7 @@ def segunda_pagina(page):
                             padding=2,
                             width=300,
                             ink=True,
-                            content=ft.Text('Digitado algo'),
+                            content=ft.Text('Digitado algo', color='green'),
                             on_click=lambda e: print('Click'),
                         ),
                         ft.Container(
@@ -69,9 +101,10 @@ def segunda_pagina(page):
             spacing=4,
             expand=False,
         ),
+            ],
+            expand=True,
+        )
     )
-
-
 def registro(page):
     page.clean()
     page.add(ft.AppBar(title=ft.Text('Registro!'), center_title=True,))

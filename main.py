@@ -1,8 +1,26 @@
 import flet as ft
+import mysql.connector
+from mysql.connector import Error
+import pandas as pd
 
+
+def create_server_connection(host_name, user_name, user_password):
+    connection = None
+    try:
+        connection = mysql.connector.connect(
+            host="localhost",
+            user="root.Att",
+            passwd="root"
+        )
+        print("MySQL Database connection successful")
+    except Error as err:
+        print(f"Error: '{err}'")
+
+    return connection
 
 
 def main(page: ft.Page):
+    connection = create_server_connection("localhost", "root.Att", "root")
     page.clean()
     page.add(ft.AppBar(title=ft.Text('Login!'), center_title=True,))
 
@@ -28,6 +46,7 @@ def main(page: ft.Page):
 
 
 def segunda_pagina(page):
+    connection = create_server_connection("localhost", "root.Att", "root")
     page.clean()
     page.add(
         ft.AppBar(
@@ -61,7 +80,8 @@ def segunda_pagina(page):
                 label_content=ft.Text("Settings"),
             ),
         ],
-        on_change=lambda e: print("Selected destination:", e.control.selected_index),
+        on_change=lambda e: print(
+            "Selected destination:", e.control.selected_index),
     )
 
     page.add(
@@ -69,43 +89,47 @@ def segunda_pagina(page):
             [
                 rail,
                 ft.Column(
-            [
-                ft.Row(
                     [
-                        ft.Container(
-                            bgcolor=ft.colors.AMBER,
-                            alignment=ft.alignment.center,
-                            expand=False,
-                            height=100,
-                            padding=2,
-                            width=300,
-                            ink=True,
-                            content=ft.Text('Digitado algo', color='green'),
-                            on_click=lambda e: print('Click'),
+                        ft.Row(
+                            [
+                                ft.Container(
+                                    bgcolor=ft.colors.AMBER,
+                                    alignment=ft.alignment.center,
+                                    expand=False,
+                                    height=100,
+                                    padding=2,
+                                    width=300,
+                                    ink=True,
+                                    content=ft.Text(
+                                        'Digitado algo', color='green'),
+                                    on_click=lambda e: print('Click'),
+                                ),
+                                ft.Container(
+                                    bgcolor=ft.colors.AMBER,
+                                    alignment=ft.alignment.center,
+                                    expand=False,
+                                    height=100,
+                                    padding=2,
+                                    width=300,
+                                    ink=True,
+                                    on_click=lambda e: print('Click')
+                                ),
+                            ],
+                            alignment=ft.alignment.center,  # Centraliza a linha na página
                         ),
-                        ft.Container(
-                            bgcolor=ft.colors.AMBER,
-                            alignment=ft.alignment.center,
-                            expand=False,
-                            height=100,
-                            padding=2,
-                            width=300,
-                            ink=True,
-                            on_click=lambda e: print('Click')
-                        ),
+                        # Adicione mais linhas aqui para cada linha de produtos
                     ],
-                    alignment=ft.alignment.center,  # Centraliza a linha na página
+                    spacing=4,
+                    expand=False,
                 ),
-                # Adicione mais linhas aqui para cada linha de produtos
-            ],
-            spacing=4,
-            expand=False,
-        ),
             ],
             expand=True,
         )
     )
+
+
 def registro(page):
+    connection = create_server_connection("localhost", "root.Att", "root")
     page.clean()
     page.add(ft.AppBar(title=ft.Text('Registro!'), center_title=True,))
 

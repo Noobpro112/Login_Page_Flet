@@ -2,6 +2,10 @@ import flet as ft
 
 
 def main(page: ft.Page):
+    page.fonts = {
+        "monocraft": "fonts/Monocraft.ttf",
+    }
+    page.theme = ft.Theme(font_family="monocraft")
     page.clean()
     page.add(ft.AppBar(title=ft.Text('Login!'), center_title=True,))
 
@@ -28,6 +32,10 @@ def main(page: ft.Page):
 
 def segunda_pagina(page):
     page.clean()
+    page.fonts = {
+        "monocraft": "fonts/Monocraft.ttf",
+    }
+    page.theme = ft.Theme(font_family="monocraft")
     page.add(
         ft.AppBar(
             leading=ft.FilledTonalButton(
@@ -48,7 +56,8 @@ def segunda_pagina(page):
                             padding=2,
                             width=300,
                             ink=True,
-                            content=ft.Text('Digitado algo'),
+                            content=ft.Text('Digitado algo',
+                                            color=ft.colors.GREEN,),
                             on_click=lambda e: print('Click'),
                         ),
                         ft.Container(
@@ -74,6 +83,10 @@ def segunda_pagina(page):
 
 def registro(page):
     page.clean()
+    page.fonts = {
+        "monocraft": "fonts/Monocraft.ttf",
+    }
+    page.theme = ft.Theme(font_family="monocraft")
     page.add(ft.AppBar(title=ft.Text('Registro!'), center_title=True,))
 
     def on_click(event):
@@ -102,4 +115,4 @@ def registro(page):
     page.add(ft.FilledButton(text='Login', on_click=lambda event: main(page)))
 
 
-ft.app(target=main)
+ft.app(target=main, assets_dir='assets')

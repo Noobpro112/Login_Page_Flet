@@ -28,7 +28,6 @@ def main(page: ft.Page):
         name_insert = username.value
         password_insert = password.value
         if name_insert == '' and password_insert == '':
-            # sql inner join
             segunda_pagina(page)
             page.update()
         else:
